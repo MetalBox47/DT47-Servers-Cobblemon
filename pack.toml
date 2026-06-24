@@ -1,0 +1,13 @@
+name = "DT47 Servers Cobblemon"
+author = "MetalBox47"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "479a4e88a73aa6364d4b3db2644f7b8abd47e7f443040be7350b9161bf714dbe"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.233"

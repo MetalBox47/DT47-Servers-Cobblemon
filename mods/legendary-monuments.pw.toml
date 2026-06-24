@@ -1,0 +1,13 @@
+name = "Cobblemon: Legendary Monuments"
+filename = "legendarymonuments-neoforge-1.21.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/m6RyHSbV/versions/3B390ntr/legendarymonuments-neoforge-1.21.1.jar"
+hash-format = "sha512"
+hash = "fdfd8b984986514290c9908d58d5e46fd9b7092d83a233a99f58e95a67ba51c0c5e3103f7cc6ecdd7fdbf664ee9723c899a7f8d7890c6e4355a8d05db97aecd7"
+
+[update]
+[update.modrinth]
+mod-id = "m6RyHSbV"
+version = "3B390ntr"
