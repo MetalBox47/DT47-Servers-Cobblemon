@@ -1,0 +1,49 @@
+name: Publish Packwiz Pack to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+      - run: | 
+          go install github.com/packwiz/packwiz@latest
+      - name: Prepare site folder
+        run: |
+          goBin=$(go env GOPATH)/bin
+          mkdir -p site
+          mv $goBin/packwiz site/packwiz
+          cp pack.toml site/pack.toml
+          cp index.toml site/index.toml
+          cp options.txt site/options.txt
+          cp LICENSE site/LICENSE
+          cp -r mods site/mods
+          cp -r config site/config
+      - name: Refresh packwiz index
+        run: |
+          cd site
+          ./packwiz refresh
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
