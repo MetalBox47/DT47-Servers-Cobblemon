@@ -27,7 +27,6 @@ jobs:
           mv $goBin/packwiz site/packwiz
           cp pack.toml site/pack.toml
           cp index.toml site/index.toml
-          cp LICENSE site/LICENSE
           cp -r mods site/mods
           cp -r config site/config
       - name: Refresh packwiz index
